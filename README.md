@@ -1,2 +1,3 @@
 # coari.github.io
-test
+This is my test hosting repository.<br>
+Thanks for watching :)
