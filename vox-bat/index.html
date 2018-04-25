@@ -90,7 +90,7 @@ function sendi()
 	var basename = $('#names').val();
 	var image = ''
 	var about = ''
-	$.getJSON('https://cors-anywhere.herokuapp.com/https://vox.community/@'+basename+'.json', function(data) {
+	$.getJSON('https://cors-anywhere.herokuapp.com/https://vox.community/@'+basename.trim()+'.json', function(data) {
       
 	try {
 		image = data.user.json_metadata.profile.profile_image;
