@@ -79,19 +79,35 @@ div.find input {
 	padding: 5px 5px 5px 5px;
 	font-size: 18px;
 }
+
+label {
+	vertical-align: bottom;
+}
 </style>
 </head>
 <body>
 
 
 <script>
+
+
 function sendi()
 {
 	var basename = $('#names').val();
+	var service = document.querySelector('input[name="pl"]:checked').value;
+
+	
 	var image = ''
 	var about = ''
-	$.getJSON('https://cors-anywhere.herokuapp.com/https://vox.community/@'+basename.trim()+'.json', function(data) {
+	
+	
+	var sites = ["https://vox.community/@", "https://steemit.com/@", "https://golos.io/@"];
+	
+	
+	
+	$.getJSON('https://cors-anywhere.herokuapp.com/'+sites[service]+basename.trim()+'.json', function(data) {
       
+	
 	try {
 		image = data.user.json_metadata.profile.profile_image;
 		about = data.user.json_metadata.profile.about;
@@ -108,10 +124,10 @@ function sendi()
 		<p><br>${about}</p>
 		<p><br><br>Батарея: <b style="color:RoyalBlue">${data.user.voting_power/100} %</b>
 		<br>Кол-во постов: <b style="color:RoyalBlue">${data.user.post_count}</b>
-		<br><br><a href="${image}" target="_blank" style="color:red;">Аватар</a>
+		<br><br><a href="${image}" target="_blank" style="color:red; border: 1px dashed red; padding: 2px 2px 2px 2px;">Аватар</a>
 		</p></td></tr>
 		
-		<tr><td class="left"><big>Name:</big></td><td class="right"><big><b>${data.user.name}</b></big></td></tr>
+		<tr><td class="left"><big>Name:</big></td><td class="right"><big><b><a href="${sites[service]}${data.user.name}" target="_blank" style="color:blue; border-bottom: 1px dotted blue; padding: 1px 1px 1px 1px;">${data.user.name}</a></b></big></td></tr>
 		<tr><td class="left">UserId:</td><td class="right">${data.user.id}</td></tr>
 		<tr><td class="left">Proxy:</td><td class="right">${data.user.proxy}</td></tr>
 
@@ -157,7 +173,7 @@ function sendi()
 		<tr><td class="left">reward_steem_balance:</td><td class="right">${data.user.reward_steem_balance}</td></tr>
 		<tr><td class="left">reward_vesting_balance:</td><td class="right">${data.user.reward_vesting_balance}</td></tr>
 		<tr><td class="left">reward_vesting_steem:</td><td class="right">${data.user.reward_vesting_steem}</td></tr>
-		<tr><td class="left">vesting_shares:</td><td class="right">${data.user.vesting_shares}</td></tr>
+		<tr><td class="left2">Vesting shares:</td><td class="right">${data.user.vesting_shares}</td></tr>
 		<tr><td class="left">delegated_vesting_shares:</td><td class="right">${data.user.delegated_vesting_shares}</td></tr>
 		<tr><td class="left">received_vesting_shares:</td><td class="right">${data.user.received_vesting_shares}</td></tr>
 		<tr><td class="left">vesting_withdraw_rate:</td><td class="right">${data.user.vesting_withdraw_rate}</td></tr>
@@ -178,7 +194,7 @@ function sendi()
 		<tr><td class="left">last_post:</td><td class="right">${data.user.last_post}</td></tr>
 		<tr><td class="left">last_root_post:</td><td class="right">${data.user.last_root_post}</td></tr>
 		<tr><td class="left">vesting_balance:</td><td class="right">${data.user.vesting_balance}</td></tr>
-		<tr><td class="left">reputation:</td><td class="right">${data.user.reputation}</td></tr>		
+		<tr><td class="left2">Reputation:</td><td class="right">${data.user.reputation}</td></tr>		
 		
 		
 		
@@ -229,6 +245,10 @@ function sendi()
  <form action="" method="post" onsubmit="sendi(); return false">
   <p><b>Введите имя пользователя сети:</b></p>
   <p><input type="input" name="names" value="coar" id="names"><input type="submit" value="Глянуть"></p>
+  <hr style="border: 1px dashed DarkGray;">
+	<p><label><input name="pl" type="radio" value="0" checked>Vox.community</label>
+	<br><label><input name="pl" type="radio" value="1">Steemit.com</label>
+	<br><label><input name="pl" type="radio" value="2">Golos.io</label></p>
  </form>
 </div>
 
