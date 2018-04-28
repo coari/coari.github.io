@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Network User Info</title>
+  <title>VOX,STEEMIT,GOLOS - Network User Info</title>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
-  <meta name="author" content="Vincent Garreau" />
+  <meta name="description" content="Vox, Steemit, Golos - account information (Battery)">
+  <meta name="author" content="Coar" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" media="screen" href="css/style.css">
   
@@ -93,7 +93,12 @@ label {
 
 function sendi()
 {
-	var basename = $('#names').val();
+	
+	var basename = getparam('u',document.location.search);
+	if(basename==null)
+		basename = $('#names').val();
+	
+	
 	var service = document.querySelector('input[name="pl"]:checked').value;
 
 	
@@ -206,8 +211,17 @@ function sendi()
 }
 
 
+function getparam( name, url ) {
+    if (!url) url = location.href;
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    var regexS = "[\\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp( regexS );
+    var results = regex.exec( url );
+    return results == null ? null : results[1];
+}
 
-    
+
+
 </script>
 
 
