@@ -91,14 +91,19 @@ label {
 <script>
 
 
-function sendi()
+function sendi(chk)
 {
+	var basename = '';
 	
-	var basename = getparam('u',document.location.search);
-	if(basename==null)
-		basename = $('#names').val();
-	else
+	if(chk==0) {
+		basename = getparam('u',document.location.search);
 		$("#names").val(basename);
+	}
+	else {
+		basename = $('#names').val();
+	}
+	
+	alert(basename);
 	
 	
 	var service = document.querySelector('input[name="pl"]:checked').value;
@@ -256,8 +261,8 @@ function getparam( name, url ) {
 </div>
 
 <div id="page-wrapper" class="find" style="position:fixed; left:400px; top: 20px;">
- <form action="" method="post" onsubmit="sendi(); return false">
-  <p><b>Введите имя пользователя сети:</b></p>
+ <form action="" method="post" onsubmit="sendi(1); return false">
+  <p><b>Имя пользователя сети:</b></p>
   <p><input type="input" name="names" value="coar" id="names"><input type="submit" value="Глянуть"></p>
   <hr style="border: 1px dashed DarkGray;">
 	<p><label><input name="pl" type="radio" value="0" checked>Vox.community</label>
@@ -271,7 +276,7 @@ function getparam( name, url ) {
 <script src="js/particles.js"></script>
 <script src="js/app.js"></script>
 <script>
-sendi();
+sendi(0);
 </script>
 
 
