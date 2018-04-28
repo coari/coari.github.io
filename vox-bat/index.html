@@ -97,11 +97,11 @@ function sendi()
 	var basename = getparam('u',document.location.search);
 	if(basename==null)
 		basename = $('#names').val();
+	else
+		$("#names").val(basename);
 	
 	
 	var service = document.querySelector('input[name="pl"]:checked').value;
-
-	
 	var image = ''
 	var about = ''
 	
