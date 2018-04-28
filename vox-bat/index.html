@@ -97,6 +97,10 @@ function sendi(chk)
 	
 	if(chk==0) {
 		basename = getparam('u',document.location.search);
+		
+		if(basename==null)
+			basename = $('#names').val();
+			
 		$("#names").val(basename);
 	}
 	else {
