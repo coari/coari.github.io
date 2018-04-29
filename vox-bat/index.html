@@ -12,8 +12,10 @@
   
 <style>
 
-table { width: 380px; padding: 10px 10px 10px 10px;
-	
+table { 
+	width: 380px; padding: 10px 10px 10px 10px;
+	position: absolute;
+	top: 106px;
 }
 
 table td.left {
@@ -77,11 +79,16 @@ div.find {
 div.find input {
 	background: rgba(255, 255, 255, 0.8);
 	padding: 5px 5px 5px 5px;
-	font-size: 18px;
+	font-size: 19px;
+}
+div.find input#names {
+	width: 262px;
 }
 
-label {
-	vertical-align: bottom;
+label, label input {
+	vertical-align: top;
+	font-size: 16px;
+	padding: 0px 0px 0px 20px;
 }
 </style>
 </head>
@@ -264,14 +271,12 @@ function getparam( name, url ) {
 
 </div>
 
-<div id="page-wrapper" class="find" style="position:fixed; left:400px; top: 20px;">
+<div id="page-wrapper" class="find" style="position:fixed; left:0px; top: 0px;">
  <form action="" method="post" onsubmit="sendi(1); return false">
   <p><b>Имя пользователя сети:</b></p>
-  <p><input type="input" name="names" value="coar" id="names"><input type="submit" value="Глянуть"></p>
+  <p><input type="input" name="names" value="coar" id="names"><input type="submit" value=" Глянуть "></p>
   <hr style="border: 1px dashed DarkGray;">
-	<p><label><input name="pl" type="radio" value="0" checked>Vox.community</label>
-	<br><label><input name="pl" type="radio" value="1">Steemit.com</label>
-	<br><label><input name="pl" type="radio" value="2">Golos.io</label></p>
+	<p><label><input name="pl" type="radio" value="0" checked>Vox</label><label><input name="pl" type="radio" value="1">Steemit</label><label><input name="pl" type="radio" value="2">Golos.io</label></p>
  </form>
 </div>
 
