@@ -2,5 +2,6 @@
 This is my test hosting repository.<br>
 Thanks for watching :)
 
-VOX User and Battery statistic
-https://coari.github.io/vox-bat/
+Steemit, Golosa and VOX User and Battery statistic: https://coari.github.io/vox-bat/
+
+To be continued.
