@@ -104,7 +104,6 @@ function changesize()
 	var wi = image.clientWidth;
 	var he = image.clientHeight;
 	var ss = wi/he;
-	alert(ss);
 	
 	//alert(image.clientWidth+' and '+image.naturalWidth);
 	if(wi < 250) {
@@ -113,7 +112,7 @@ function changesize()
 	}
 	else {
 		document.getElementById("avaim").width = 160;
-		document.getElementById("avaim").height = auto;
+		document.getElementById("avaim").height = (160/ss);
 	}
 }
 
