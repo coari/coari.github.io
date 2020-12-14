@@ -136,8 +136,12 @@ function changesize()
 
 	alert(image.clientWidth+' and '+image.naturalWidth+' button: '+event.button);
 	if(wi < 200) {
-		document.getElementById("avaim").width = image.naturalWidth;
-		document.getElementById("avaim").height = image.naturalHeight;
+		if(event.button==2) {// Right click
+			document.getElementById("avaim").width = image.naturalWidth;
+			document.getElementById("avaim").height = image.naturalHeight; }
+		else if(event.button==0) { // Left click
+			document.getElementById("avaim").width = wi*3;
+			document.getElementById("avaim").height = he*3; }
 	}
 	else {
 		document.getElementById("avaim").width = 160;
