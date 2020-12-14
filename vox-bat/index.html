@@ -101,12 +101,15 @@ label, label input {
 function changesize()
 {
 	var image = document.getElementById('avaim');
-	alert(image.clientWidth+' and '+image.naturalWidth);
-	//if(image.clientWidth == '160') {
-	//	image. style. width = '156px';
-	//	image. style. height = 'auto'; }
-	//else {
-	//}
+	//alert(image.clientWidth+' and '+image.naturalWidth);
+	if(image.clientWidth == 160) {
+		image.style.width = image.naturalWidth;
+		image.style.height = 'auto'; 
+	}
+	else {
+		image.style.width = 160;
+		image.style.height = 'auto'; 
+	}
 }
 
 function sendi(chk)
