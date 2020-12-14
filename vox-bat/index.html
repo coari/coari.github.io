@@ -134,7 +134,7 @@ function changesize()
 	var he = image.clientHeight;
 	var ss = wi/he;
 
-	alert(image.clientWidth+' and '+image.naturalWidth+' button: '+evt.xa.which);
+	alert(image.clientWidth+' and '+image.naturalWidth+' button: '+event.button);
 	if(wi < 200) {
 		document.getElementById("avaim").width = image.naturalWidth;
 		document.getElementById("avaim").height = image.naturalHeight;
