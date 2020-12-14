@@ -149,7 +149,7 @@ function sendi(chk)
 	  
 	var text = `
 		<table width="500px">
-		<tr><td class="left"><img id="avaim" src=${image} width="160px" onmousedown='this.style.width=100%; '></td>
+		<tr><td class="left"><img id="avaim" src=${image} width="160px" onmousedown='changesize()'></td>
 		<td class="right2">
 		<p><br>${about}</p>
 		<p><br><br>Батарея: <b style="color:RoyalBlue">${data.user.voting_power/100} %</b>
