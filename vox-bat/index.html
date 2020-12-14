@@ -99,7 +99,7 @@ label, label input {
 <script>
 
 	
-$("#avaim").mousedown(function(ev){
+/*$("#avaim").mousedown(function(ev){
 	var image = document.getElementById('avaim');
 	var wi = image.clientWidth;
 	var he = image.clientHeight;
@@ -125,24 +125,25 @@ $("#avaim").mousedown(function(ev){
 	}
 
 });
+*/
+
+function changesize()
+{
+	var image = document.getElementById('avaim');
+	var wi = image.clientWidth;
+	var he = image.clientHeight;
+	var ss = wi/he;
 	
-//function changesize()
-//{
-//	var image = document.getElementById('avaim');
-//	var wi = image.clientWidth;
-//	var he = image.clientHeight;
-//	var ss = wi/he;
-//	
-//	//alert(image.clientWidth+' and '+image.naturalWidth);
-//	if(wi < 200) {
-//		document.getElementById("avaim").width = image.naturalWidth;
-//		document.getElementById("avaim").height = image.naturalHeight;
-//	}
-//	else {
-//		document.getElementById("avaim").width = 160;
-//		document.getElementById("avaim").height = (160/ss);
-//	}
-//}	onmousedown='changesize()'
+	alert(image.clientWidth+' and '+image.naturalWidth+' button '+MouseEvent.which);
+	if(wi < 200) {
+		document.getElementById("avaim").width = image.naturalWidth;
+		document.getElementById("avaim").height = image.naturalHeight;
+	}
+	else {
+		document.getElementById("avaim").width = 160;
+		document.getElementById("avaim").height = (160/ss);
+	}
+}
 
 function sendi(chk)
 {
@@ -186,7 +187,7 @@ function sendi(chk)
 	  
 	var text = `
 		<table width="500px">
-		<tr><td class="left"><img id="avaim" src=${image} width="160px" ></td>
+		<tr><td class="left"><img id="avaim" src=${image} width="160px" onmousedown='changesize()'></td>
 		<td class="right2">
 		<p><br>${about}</p>
 		<p><br><br>Батарея: <b style="color:RoyalBlue">${data.user.voting_power/100} %</b>
