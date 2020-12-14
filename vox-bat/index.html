@@ -98,23 +98,51 @@ label, label input {
 
 <script>
 
-function changesize()
-{
+	
+$("#avaim").mousedown(function(ev){
 	var image = document.getElementById('avaim');
 	var wi = image.clientWidth;
 	var he = image.clientHeight;
 	var ss = wi/he;
 	
 	//alert(image.clientWidth+' and '+image.naturalWidth);
-	if(wi < 250) {
-		document.getElementById("avaim").width = image.naturalWidth;
-		document.getElementById("avaim").height = image.naturalHeight;
+	if(wi < 200) {
+		if(ev.which == 1)
+		{
+			document.getElementById("avaim").width = wi*3;
+			document.getElementById("avaim").height = he*3;
+		}
+		else if(ev.which == 3)
+		{
+			document.getElementById("avaim").width = image.naturalWidth;
+			document.getElementById("avaim").height = image.naturalHeight;
+		}
+
 	}
 	else {
 		document.getElementById("avaim").width = 160;
 		document.getElementById("avaim").height = (160/ss);
 	}
-}
+
+});
+	
+//function changesize()
+//{
+//	var image = document.getElementById('avaim');
+//	var wi = image.clientWidth;
+//	var he = image.clientHeight;
+//	var ss = wi/he;
+//	
+//	//alert(image.clientWidth+' and '+image.naturalWidth);
+//	if(wi < 200) {
+//		document.getElementById("avaim").width = image.naturalWidth;
+//		document.getElementById("avaim").height = image.naturalHeight;
+//	}
+//	else {
+//		document.getElementById("avaim").width = 160;
+//		document.getElementById("avaim").height = (160/ss);
+//	}
+//}
 
 function sendi(chk)
 {
