@@ -101,18 +101,17 @@ label, label input {
 function changesize()
 {
 	var image = document.getElementById('avaim');
+	var wi = image.clientWidth;
+	var he = image.clientHeight;
+	
 	//alert(image.clientWidth+' and '+image.naturalWidth);
-	if(image.clientWidth == 160) {
+	if(image.clientWidth == wi) {
 		document.getElementById("avaim").width = image.naturalWidth;
 		document.getElementById("avaim").height = image.naturalHeight;
-		//image.style.width = image.naturalWidth;
-		//image.style.height = 'auto'; 
 	}
 	else {
-		document.getElementById("avaim").width = 160;
-		document.getElementById("avaim").height = 'auto';
-		//image.style.width = 160;
-		//image.style.height = 'auto'; 
+		document.getElementById("avaim").width = wi;
+		document.getElementById("avaim").height = he;
 	}
 }
 
