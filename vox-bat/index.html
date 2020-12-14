@@ -142,7 +142,7 @@ $("#avaim").mousedown(function(ev){
 //		document.getElementById("avaim").width = 160;
 //		document.getElementById("avaim").height = (160/ss);
 //	}
-//}
+//}	onmousedown='changesize()'
 
 function sendi(chk)
 {
@@ -186,7 +186,7 @@ function sendi(chk)
 	  
 	var text = `
 		<table width="500px">
-		<tr><td class="left"><img id="avaim" src=${image} width="160px" onmousedown='changesize()'></td>
+		<tr><td class="left"><img id="avaim" src=${image} width="160px" ></td>
 		<td class="right2">
 		<p><br>${about}</p>
 		<p><br><br>Батарея: <b style="color:RoyalBlue">${data.user.voting_power/100} %</b>
