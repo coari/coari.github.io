@@ -63,7 +63,7 @@
 	<script>
 		const urlParams = new URLSearchParams(window.location.search);
 		const ipAddress = urlParams.get('ip');
-		const apiUrl = `http://ip-api.com/json/${ipAddress}?fields=66846719`;
+		const apiUrl = `https://ip-api.com/json/${ipAddress}?fields=66846719`;
 		const resultDiv = document.getElementById('result');
 
 		async function getIpData(apiUrl) {
