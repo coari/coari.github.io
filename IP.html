@@ -68,7 +68,7 @@
 
 		async function getIpData(apiUrl) {
 			try {
-				const response = await fetch(`https://cors-anywhere.herokuapp.com/${apiUrl}`);
+				const response = await fetch(apiUrl);
 				const data = await response.json();
 				let tableRows = '<table class="iptable">';
 				Object.keys(data).forEach(key => {
