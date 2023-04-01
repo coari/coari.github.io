@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IPTool</title>
+	<style>
+		body {
+			font-family: 'Lato', sans-serif;
+			font-size: 12px;
+		}
+		.iptable {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		.iptable td, .iptable th {
+			border: 1px solid black;
+			padding: 8px;
+			text-align: left;
+		}
+
+		.iptable tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
+		.iptable th {
+			background-color: #4CAF50;
+			color: white;
+		}
+		
+		div#form {
+			width: 600px;
+		}
+		div#result {
+			width: 600px;
+		}
+	</style>
+</head>
+<body>
+	<center>
+	<div id="form">
+		<form id="ip-form" method="get" action="">
+		<label for="ip-address">IP Address:</label>
+		<input type="text" id="ip-address" name="ip">
+		<button type="submit">Show</button>
+		<button type="button" OnMouseDown="My()">My?</button>
+	</form><br>
+	
+	</div>
+	<div id="result"></div></center>
+	
+
+	<script>
+	async function My() {
+		fetch('https://api.ipify.org?format=json')
+			.then(response => response.json())
+			.then(data => {
+				const myIp = data.ip;
+				document.getElementById('ip-address').value = `${myIp}`;
+			})
+			.catch(error => console.error(error));
+		}
+	</script>
+	<script>
+		const urlParams = new URLSearchParams(window.location.search);
+		const ipAddress = urlParams.get('ip');
+		const apiUrl = `http://ip-api.com/json/${ipAddress}?fields=66846719`;
+		const resultDiv = document.getElementById('result');
+
+		async function getIpData(apiUrl) {
+			try {
+				const response = await fetch(apiUrl);
+				const data = await response.json();
+				let tableRows = '<table class="iptable">';
+				Object.keys(data).forEach(key => {
+					tableRows += `<tr><td>${key}</td><td>${data[key]}</td></tr>`;
+				});
+				tableRows += '</table>';
+
+				resultDiv.innerHTML = tableRows;
+			} catch (error) {
+				console.error(error);
+			}
+		}
+
+		getIpData(apiUrl);
+	</script>
+</body>
+</html>
