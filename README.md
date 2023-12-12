@@ -7,3 +7,4 @@
 <br>3) https://coari.github.io/IP.html - IP tools scanner (<u><b>Works only locally on pc, not from remote web or hosting</b></u>)
 <br>
 <br>To be continued.
+<input type=text>test</input>
